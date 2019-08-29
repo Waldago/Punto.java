@@ -1,0 +1,115 @@
+public class Punto {
+
+	public static void main(String[] args) {
+		Punto p1=new Punto();
+		Punto p2=new Punto(8.3,2.6);
+		Punto p3=new Punto(p2);
+		Punto p4=new Punto(4.9);
+		System.out.println(p3);
+		System.out.println("La distancia al punto 0 es:"+p2.modulo());
+		System.out.println("La distancia entre p4 y p2 es:"+p4.distancia(p2));
+		/*String msg = "cssoof";
+		msg.compilar();*/
+
+	}
+
+	private double x;
+	private double y;
+
+
+	public Punto() {
+		this.setX(0.0);
+		this.setY(0.0);
+	}
+
+	public Punto(double x,double y) {
+		this.setX(x);
+		this.setY(y);
+	}
+
+	public Punto(double a) {
+		this.setX(a);
+		this.setY(a);
+	}
+
+	public Punto(Punto a) {
+		this.setX(a.getX());
+		this.setY(a.getY());
+	}
+
+	/*private boolean compilar() {
+		if(msg.startsWith("c")&&msg.endsWith("f")) return true;
+		return false;
+
+	}
+
+	private double norte() {
+		return this.getY()+1;
+	}
+
+	private double sur() {
+		return this.getY()-1;
+	}
+
+	private double este() {
+		return this.getX()+1;
+	}
+
+	private double oeste() {
+		return this.getX()-1;
+	}
+
+	public void moverPunto() {
+		for (int i=1;i<10;i++) {
+			switch (i){
+			case msg[i]=="n":{
+				this.norte();
+				break;
+			}
+			case msg[i]=="s":{
+				this.sur();
+				break;
+			}
+			case msg[i]=="e":{
+				this.este();
+				break;
+			}
+			case msg[i]=="o":{
+				this.oeste();
+				break;
+			}
+			}
+		}
+	}*/
+
+	public double modulo() {
+		return Math.sqrt(Math.pow(this.getX(),2)+Math.pow(this.getY(),2));
+	}
+
+	public double distancia(Punto a) {
+		return Math.sqrt(Math.pow((this.getX()-a.getX()),2)+Math.pow((this.getY()-a.getY()),2));
+
+	}
+
+	@Override
+	public String toString() {
+		return "Punto [x=" + x + ", y=" + y + "]";
+	}
+
+	public double getX() {
+		return x;
+	}
+
+	public void setX(double x) {
+		this.x = x;
+	}
+
+	public double getY() {
+		return y;
+	}
+
+	public void setY(double y) {
+		this.y = y;
+	}
+
+}
