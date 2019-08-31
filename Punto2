@@ -1,0 +1,91 @@
+package ar.edu.uno.punto;
+
+
+public class Punto {
+
+	public static void main(String[] args) {
+		Punto p1=new Punto();
+		Punto p2=new Punto(8.3,2.6);
+		Punto p3=new Punto(p2);
+		Punto p4=new Punto(4.9);
+		System.out.println(p3);
+		System.out.println("La distancia entre p4 y p2 es:"+p2.distancia2(p4));
+		System.out.println("La distancia entre p4 y p2 es:"+distancia(p2,p4));
+		Constructor c1=new Constructor("csenof");
+		System.out.println(c1.compilar());
+		if (c1.compilar()==true) {
+			p1=c1.ejecutar();
+			System.out.println(p1);
+		}
+	}
+
+	private double x;
+	private double y;
+
+	public Punto() {
+		this(0.0);
+	}
+
+	public Punto(double x,double y) {
+		this.setX(x);
+		this.setY(y);
+	}
+
+	public Punto(double a) {
+		this.setX(a);
+		this.setY(a);
+	}
+
+	public Punto(Punto a) {
+		this.setX(a.getX());
+		this.setY(a.getY());
+	}
+
+	public double norte() {
+		return this.getY()+1;
+	}
+
+	public double sur() {
+		return this.getY()-1;
+	}
+
+	public double este() {
+		return this.getX()+1;
+	}
+
+	public double oeste() {
+		return this.getX()-1;
+	}
+
+	public double distancia2(Punto a) {
+		return Math.sqrt(Math.pow((this.getX()-a.getX()),2)+Math.pow((this.getY()-a.getY()),2));
+
+	}
+
+	public static double distancia(Punto a,Punto b) {
+		return Math.sqrt(Math.pow((b.getX()-a.getX()),2)+Math.pow((b.getY()-a.getY()),2));
+
+	}
+
+	@Override
+	public String toString() {
+		return "Punto [x=" + x + ", y=" + y + "]";
+	}
+
+	public double getX() {
+		return x;
+	}
+
+	public void setX(double x) {
+		this.x = x;
+	}
+
+	public double getY() {
+		return y;
+	}
+
+	public void setY(double y) {
+		this.y = y;
+	}
+
+}
