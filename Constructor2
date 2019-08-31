@@ -1,0 +1,47 @@
+package ar.edu.uno.punto;
+
+public class Compilador {
+	private String msg;
+
+	public Compilador(String msg) {
+		this.setMsg(msg);
+	}
+
+	public Compilador() {
+		this.setMsg(null);
+	}
+
+	boolean compilar() {
+		if(this.getMsg().matches("^[cC][SsEeNnOo]*[fF]$")) return true;
+		return false;
+
+	}
+
+	public Punto ejecutar() {
+		Punto p5=new Punto();
+		for (int i=1;i<msg.length();i++) {
+			if (msg.charAt(i)=='n'||msg.charAt(i)=='N'){
+				p5.norte();
+			}
+			else if (msg.charAt(i)=='s'||msg.charAt(i)=='S'){
+				p5.sur();
+			}
+			else if (msg.charAt(i)=='e'||msg.charAt(i)=='E'){
+				p5.este();
+			}
+			else if (msg.charAt(i)=='o'||msg.charAt(i)=='O'){
+				p5.oeste();
+			}
+		}
+		return p5;
+	}
+
+	public String getMsg() {
+		return msg;
+	}
+
+	public void setMsg(String msg) {
+		this.msg = msg;
+	}
+
+}
