@@ -1,0 +1,95 @@
+package ar.edu.uno.punto;
+import java.util.Scanner;
+
+
+public class Punto {
+
+	public static void main(String[] args) {
+		Punto p1=new Punto();
+		Punto p2=new Punto(8.3,2.6);
+		Punto p3=new Punto(p2);
+		Punto p4=new Punto(4.9);
+		p3.sur();
+		System.out.println(p3);
+		System.out.println("La distancia entre p4 y p2 es:"+p2.distancia2(p4));
+		System.out.println("La distancia entre p4 y p2 es:"+distancia(p2,p4));
+		System.out.println("Usted se encuentra Aqui:"+p1);
+		Scanner teclado = new Scanner(System.in);
+		System.out.print("Introduzca el String: ");
+		Compilador c1=new Compilador(teclado.nextLine());
+		System.out.println(c1.compilar());
+		if (c1.compilar()==true) {
+			p1=c1.ejecutar();
+			System.out.println("Usted Ahora se encuentra Aqui:"+p1);
+		}
+	}
+
+	private double x;
+	private double y;
+
+	public Punto() {
+		this(0.0);
+	}
+
+	public Punto(double x,double y) {
+		this.setX(x);
+		this.setY(y);
+	}
+
+	public Punto(double a) {
+		this.setX(a);
+		this.setY(a);
+	}
+
+	public Punto(Punto a) {
+		this.setX(a.getX());
+		this.setY(a.getY());
+	}
+
+	public void norte() {
+		this.setY(getY()+1);
+	}
+
+	public void sur() {
+		this.setY(getY()-1);
+	}
+
+	public void este() {
+		this.setX(getX()+1);
+	}
+
+	public void oeste() {
+		this.setX(getX()-1);
+	}
+
+	public double distancia2(Punto a) {
+		return Math.sqrt(Math.pow((this.getX()-a.getX()),2)+Math.pow((this.getY()-a.getY()),2));
+
+	}
+
+	public static double distancia(Punto a,Punto b) {
+		return a.distancia2(b);
+	}
+
+	@Override
+	public String toString() {
+		return "Punto [x=" + x + ", y=" + y + "]";
+	}
+
+	public double getX() {
+		return x;
+	}
+
+	public void setX(double x) {
+		this.x = x;
+	}
+
+	public double getY() {
+		return y;
+	}
+
+	public void setY(double y) {
+		this.y = y;
+	}
+
+}
