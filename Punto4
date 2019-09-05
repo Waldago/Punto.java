@@ -1,0 +1,118 @@
+package ar.edu.uno.punto;
+
+public class Punto {
+
+	public static void main(String[] args) {
+		Punto p1=new Punto();
+		Punto p2=new Punto(8.3,2.6);
+		Punto p3=new Punto(p2);
+		Punto p4=new Punto(4.9);
+		System.out.println(p4);
+		System.out.println("La distancia entre p4 y p2 es:"+p2.distancia2(p4));
+		System.out.println("La distancia entre p3 y p1 es:"+Punto.distancia(p3,p1));
+		p4.norte();
+		System.out.println(p4);
+		p4.reset();
+		System.out.println(p4);
+		System.out.println(cont);
+		if(Compilador.compilar("csssNnoooooeef")!=null) {
+			ProgObj po=Compilador.compilar("csssNnoooooeef");
+			po.ejecutar();
+			System.out.println(po);
+		}
+	}
+
+	private double x;
+	private double y;
+	private double xi;
+	private double yi;
+
+	private static int cont=0;
+
+
+	public Punto() {
+		this(0.0);
+	}
+
+	public Punto(double x,double y) {
+		this.setX(x);
+		this.setY(y);
+		cont++;
+		this.setXi(x);
+		this.setYi(y);;
+	}
+
+	public Punto(double a) {
+		this(a,a);
+	}
+
+	public Punto(Punto a) {
+		this(a.getX(),a.getY());
+	}
+
+	public void norte() {
+		this.setY(getY()+1);
+	}
+
+	public void sur() {
+		this.setY(getY()-1);
+	}
+
+	public void este() {
+		this.setX(getX()+1);
+	}
+
+	public void oeste() {
+		this.setX(getX()-1);
+	}
+
+	public double distancia2(Punto a) {
+		return Math.sqrt(Math.pow((this.getX()-a.getX()),2)+Math.pow((this.getY()-a.getY()),2));
+
+	}
+
+	public static double distancia(Punto a,Punto b) {
+		return a.distancia2(b);
+	}
+
+	public void reset(){
+		this.setX(this.getXi());
+		this.setY(this.getYi());
+	}
+	public double getXi() {
+		return xi;
+	}
+
+	public void setXi(double xi) {
+		this.xi = xi;
+	}
+
+	public double getYi() {
+		return yi;
+	}
+
+	public void setYi(double yi) {
+		this.yi = yi;
+	}
+
+	@Override
+	public String toString() {
+		return "Punto [x=" + x + ", y=" + y + "]";
+	}
+
+	public double getX() {
+		return x;
+	}
+
+	public void setX(double x) {
+		this.x = x;
+	}
+
+	public double getY() {
+		return y;
+	}
+
+	public void setY(double y) {
+		this.y = y;
+	}
+}
