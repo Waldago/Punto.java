@@ -1,0 +1,11 @@
+package ar.edu.uno.punto;
+
+public class Compilador {
+
+
+	public static ProgObj compilar(String msg) {
+		if (msg==null)return null;
+		if (msg.length()<2)return null;
+		return (msg.matches("^[cC][sSeEnNoO]*[Ff]$")) ? new ProgObj(msg):null;
+	}
+}
